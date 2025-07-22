@@ -1,4 +1,4 @@
-/*******************************************************************************************
+ /*******************************************************************************************
 *
 *   raylib [shaders] example - OpenGL point particle system
 *
@@ -46,6 +46,12 @@
         #define GLSL_VERSION            330
     #endif
 #else   // PLATFORM_ANDROID, PLATFORM_WEB
+    #include "GLES2/gl2.h"       // Required for: OpenGL functionality 
+	#define GL_GLEXT_PROTOTYPES
+    #include "GLES2/gl2ext.h"    // Required for: OpenGL Vertex Array Objects support
+    #define glGenVertexArrays glGenVertexArraysOES
+    #define glBindVertexArray glBindVertexArrayOES
+    #define glDeleteVertexArrays glDeleteVertexArraysOES
     #define GLSL_VERSION            100
 #endif
 
